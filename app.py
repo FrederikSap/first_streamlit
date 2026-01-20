@@ -1,42 +1,35 @@
-# office_quotes_app.py
 import streamlit as st
 import random
 
+# Page config
+st.set_page_config(page_title="Creed Bratton Quote Generator", page_icon="🧔")
+
 # Title
-st.title("📺 The Office Quote Generator")
+st.title("🧔 Creed Bratton Quote Generator")
+st.write("Click the button to get a random quote from Creed Bratton.")
 
-st.write("Click the button to get a random quote from *The Office*.")
+# Display Creed image
+# You can replace this URL with any Creed image you prefer
+creed_image_url = "https://upload.wikimedia.org/wikipedia/en/8/80/CreedBratton.jpg"
+st.image(creed_image_url, caption="Creed Bratton – The Office", use_container_width=True)
 
-# Quote database (you can expand this list)
-quotes = [
-    ("I'm not superstitious, but I am a little stitious.", "Michael Scott"),
-    ("Bears. Beets. Battlestar Galactica.", "Jim Halpert"),
-    ("I talk a lot, so I've learned to tune myself out.", "Kelly Kapoor"),
-    ("Sometimes I’ll start a sentence and I don’t even know where it’s going. I just hope I find it along the way.", "Michael Scott"),
-    ("Identity theft is not a joke, Jim! Millions of families suffer every year!", "Dwight Schrute"),
-    ("I declare bankruptcy!", "Michael Scott"),
-    ("Why are you the way that you are?", "Michael Scott"),
-    ("I’m not a hero. I just put my bra on one boob at a time like everyone else.", "Phyllis Lapin-Vance"),
-    ("You miss 100% of the shots you don’t take. – Wayne Gretzky", "Michael Scott"),
-    ("Fact: Bears eat beets. Bears. Beets. Battlestar Galactica.", "Jim Halpert"),
+# Creed-only quotes
+creed_quotes = [
+    "I run a small fake ID company from my car with a laminating machine that I swiped from the sheriff’s station.",
+    "Nobody steals from Creed Bratton and gets away with it. The last person to do this disappeared. His name? Creed Bratton.",
+    "If I can't scuba, then what's this all been about? What am I working toward?",
+    "I’ve been involved in a number of cults, both as a leader and a follower. You have more fun as a follower, but you make more money as a leader.",
+    "I’d like to see a machine that puts out candy for everyone.",
+    "Just pretend like we’re talking until the cops leave.",
+    "There is no difference between a murderer and a rapist. They both take what they want.",
+    "I already won the lottery. I was born in the U.S.A., baby.",
+    "I sprout mung beans on a damp paper towel in my desk drawer. Very nutritious, but they smell like death.",
+    "When Pam gets Michael’s old chair, I get Pam’s old chair. Then I’ll have two chairs. Only one to go.",
 ]
 
 # Button to generate a quote
-if st.button("Generate Quote"):
-    quote, character = random.choice(quotes)
+if st.button("Generate Creed Quote"):
+    quote = random.choice(creed_quotes)
+    st.markdown("---")
     st.markdown(f"### 💬 \"{quote}\"")
-    st.markdown(f"**— {character}**")
-
-# Optional: Allow user to add their own quotes
-st.markdown("---")
-st.subheader("Add Your Own Quote")
-
-new_quote = st.text_input("Quote")
-new_character = st.text_input("Character")
-
-if st.button("Add Quote"):
-    if new_quote and new_character:
-        quotes.append((new_quote, new_character))
-        st.success("Quote added! (Note: This resets when the app reloads.)")
-    else:
-        st.error("Please enter both a quote and a character name.")
+    st.markdown("**— Creed Bratton**")
